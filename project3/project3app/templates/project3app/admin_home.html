@@ -1,0 +1,81 @@
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Manager Home Page</title>
+</head>
+<body>
+    <div class="container">
+        <div class="col-md-6">
+            <h2>Add New Player</h2>
+            {% if messages %}
+                {% for message in messages %}
+                    {% if 'add_player_msg' in message.tags %}
+                        <div class="alert alert-{{ message.tags }}" role="alert">
+                            {{ message }}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+            <form method="post">
+                {% csrf_token %}
+                {{ player_form|crispy }}
+                <button type="submit" name="add_player" class="btn btn-primary">Add Player</button>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <h2>Add New Coach</h2>
+            {% if messages %}
+                {% for message in messages %}
+                    {% if 'add_coach_msg' in message.tags %}
+                        <div class="alert alert-{{ message.tags }}" role="alert">
+                            {{ message }}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+            <form method="post">
+                {% csrf_token %}
+                {{ coach_form|crispy }}
+                <button type="submit" name="add_coach" class="btn btn-primary">Add Coach</button>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <h2>Add New Jury</h2>
+            {% if messages %}
+                {% for message in messages %}
+                    {% if 'add_jury_msg' in message.tags %}
+                        <div class="alert alert-{{ message.tags }}" role="alert">
+                            {{ message }}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+            <form method="post">
+                {% csrf_token %}
+                {{ jury_form|crispy }}
+                <button type="submit" name="add_jury" class="btn btn-primary">Add Jury</button>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <h2>Update Stadium Name</h2>
+            {% if messages %}
+                {% for message in messages %}
+                    {% if 'update_stadium_name_msg' in message.tags %}
+                        <div class="alert alert-{{ message.tags }}" role="alert">
+                            {{ message }}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+            <form method="post">
+                {% csrf_token %}
+                {{ stadium_name_update_form|crispy }}
+                <button type="submit" name="update_stadium_name" class="btn btn-primary">Update Stadium Name</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

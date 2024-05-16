@@ -1,0 +1,33 @@
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jury Home Page</title>
+</head>
+<body>
+    <h1>Welcome, {{ username }}</h1>
+    <div>
+        <h2>Jury Statistics</h2>
+        <p>Average Rating: {{ rating_avg }}</p>
+        <p>Number of Ratings: {{ rating_count }}</p>
+    </div>
+
+    <div>
+        <h2>Rate Session</h2>
+        {% if messages %}
+            {% for message in messages %}
+                {% if 'rate_session_msg' in message.tags %}
+                    <div class="alert alert- {{ message.tags}}">{{ message }}</div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+        <form method="post">
+            {% csrf_token %}
+            {{ jury_rate_form|crispy}}
+            <button type="submit" name="rate_session">Rate Session</button>
+        </form>
+    </div>
+</body>
+</html>

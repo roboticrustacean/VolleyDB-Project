@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Home Page</title>
+</head>
+<body>
+    <h1>Welcome, {{ username }}</h1>
+
+    <div>
+        <h2>Former Teammates</h2>
+        <ul>
+            {% for teammate in former_teammates %}
+                <li>{{ teammate }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div>
+        <h2>Most Played With Height</h2>
+        {% if average_height %}
+            <p>Average Height: {{ average_height }} cm</p>
+        {% else %}
+            <p>No data available</p>
+        {% endif %}
+    </div>
+</body>
+</html>

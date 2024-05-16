@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Index</title>
+</head>
+<body>
+    {% if index_text %}
+        {{ index_text }}
+    {% else %}
+        <h1>No index_text</h1>
+    {% endif %}
+    
+    <!-- Add a button to redirect to the login page -->
+    <a href="{% url 'loginIndex' %}" class="btn btn-primary">Login</a>
+</body>
+</html>

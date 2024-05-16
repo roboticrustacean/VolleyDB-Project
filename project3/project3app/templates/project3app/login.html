@@ -1,0 +1,29 @@
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="d-flex justify-content-around" style="margin-top: 20px;">
+                {% if login_fail %}
+                    <div class="alert alert-danger" role="alert">
+                        <h4>incorrect</h4>
+                    </div>
+                {% endif %}
+                <form class="form-group" method="POST" novalidate action="{% url 'login' %}">
+                    
+                    {{ login_form|crispy }}
+                    {% csrf_token %}
+                    
+                    <button type="submit" class="btn btn-success">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
