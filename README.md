@@ -1,5 +1,5 @@
 # VolleyDB-Project
- Volleyball database project for CMPE321 course.
+ Volleyball database project for CMPE321 course. Developed using Django. 
 
 # Introduction
 Last year, our national volleyball team, which became the European champion
